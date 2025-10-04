@@ -1,0 +1,36 @@
+/* Searchcss.css */
+
+/* Search Bar */
+.flex.justify-center.mt-4 {
+    margin-top: 1.75rem;
+}
+
+.relative.w-full.max-w-md {
+    position: relative;
+    width: 100%;
+    max-width: 32rem; /* Adjusted to match overall styling */
+}
+
+.w-full.p-3 {
+    width: 100%;
+    padding: 0.8rem; /* Reduced padding */
+    border: 0.75px solid #cbd5e0;
+    border-radius: 0.8rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.w-full.p-3:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4); /* Focus effect */
+    border-color: #79b3fb;
+}
+
+/* card-container class to style grid*/
+.card-container {
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: flex-start; /* Align items to the start of the container */
+    gap: 1.35rem; /* Gap between items */
+    margin-top: 2.25rem; /* Corrected margin top */
+}

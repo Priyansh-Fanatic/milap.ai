@@ -1,0 +1,354 @@
+/* General Styles - Keep the Existing Variables */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --light-bg: #f8f9fa;
+  --dark-text: #343a40;
+  --white: #fff;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --border-radius: 0.5rem;
+  --transition-speed: 0.3s;
+  --transition-easing: ease-in-out;
+}
+
+/* Basic Body Styling */
+body {
+  font-family: "Nunito", sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar - Sticky Positioning */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+  transition: box-shadow var(--transition-speed) var(--transition-easing);
+}
+
+/* Navbar Shadow on Scroll */
+.navbar.scrolled {
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Container */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Navbar Logo */
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--dark-text);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-easing);
+}
+
+/* Navigation List */
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+/* List Items */
+.navbar li {
+  position: relative;
+  margin-left: 1.5rem;
+}
+
+/* Navigation Links */
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark-text);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: color var(--transition-speed) var(--transition-easing);
+}
+
+/* Underline Animation */
+.navbar a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform var(--transition-speed) var(--transition-easing);
+}
+
+.navbar a:hover::before,
+.navbar .active::before,
+.navbar .active:focus::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Navigation Link Icon */
+.navbar a i,
+.navbar a:focus i {
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+  line-height: 0;
+}
+
+/* Get Started Button */
+.navbar .getstarted,
+.navbar .getstarted:focus {
+  background: var(--primary-color);
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--border-radius);
+  color: var(--white);
+  font-weight: 500;
+  margin-left: 1.5rem;
+  transition: background-color var(--transition-speed) var(--transition-easing),
+    transform var(--transition-speed) var(--transition-easing),
+    box-shadow var(--transition-speed) var(--transition-easing);
+}
+
+/* Get Started Button Hover */
+.navbar .getstarted:hover,
+.navbar .getstarted:focus:hover {
+  background: #0056b3;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown Container */
+.navbar .dropdown {
+  position: relative;
+}
+
+/* Dropdown Arrow */
+.navbar .dropdown > a::after {
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  transition: transform var(--transition-speed) var(--transition-easing);
+  display: inline-block;
+}
+
+/* Rotate Arrow on Hover */
+.navbar .dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.navbar .dropdown ul {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin: 0;
+  padding: 0.5rem 0;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  transform: translateY(10px);
+  min-width: 220px;
+  transition: opacity var(--transition-speed) var(--transition-easing),
+    visibility var(--transition-speed) var(--transition-easing),
+    transform var(--transition-speed) var(--transition-easing);
+}
+
+/* Show Dropdown Menu */
+.navbar .dropdown:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Dropdown List Items */
+.navbar .dropdown ul li {
+  min-width: 100%;
+}
+
+/* Dropdown Links */
+.navbar .dropdown ul a {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: none;
+}
+
+/* Nested Dropdowns */
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: 100%;
+  transform: translateX(10px);
+}
+
+/* Show Nested Dropdown */
+.navbar .dropdown .dropdown:hover > ul {
+  transform: translateX(0);
+}
+
+/* Mobile Navigation Toggle (Modified) */
+.mobile-nav-toggle {
+  font-size: 2rem; /* Increased size */
+  color: var(--dark-text);
+  cursor: pointer;
+  display: none;
+  transition: transform var(--transition-speed) var(--transition-easing);
+  position: absolute; /* Position it */
+  top: 1rem; /* Adjust as needed */
+  right: 1rem; /* Adjust as needed */
+  z-index: 1001; /* Ensure it's above the menu */
+  padding: 0.5rem; /* Added padding for touch target */
+  border-radius: 50%; /* Make it round */
+  background-color: rgba(255, 255, 255, 0.3); /* Optional: slight background */
+}
+
+/* Hover effect for the toggle icon */
+.mobile-nav-toggle:hover {
+  transform: rotate(90deg) scale(1.1); /* Rotate and scale on hover */
+  background-color: rgba(255, 255, 255, 0.5); /* Darken background on hover */
+}
+
+
+/* Make it full width on smaller screens */
+@media (max-width: 767px) {
+  .navbar-mobile {
+      width: 100%;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+  }
+}
+
+/* Mobile Navigation Styles (Modified) */
+.navbar-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2); /* Translucent white */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  overflow-y: auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  transform: translateX(100%);
+  transition: transform var(--transition-speed) var(--transition-easing);
+}
+
+
+/* Show Mobile Navigation */
+.navbar-mobile.active {
+  transform: translateX(0);
+}
+
+/* Mobile Navigation Header */
+.navbar-mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Mobile Navigation Logo */
+.navbar-mobile-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Mobile Navigation List */
+.navbar-mobile ul {
+  display: block;
+  padding: 1rem;
+  background: var(--light-bg);
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+}
+
+/* Mobile Navigation Links */
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  color: var(--dark-text);
+  border-bottom: 1px solid #eee;
+  transition: background-color var(--transition-speed) var(--transition-easing);
+}
+
+/* Use a slightly darker background for mobile menu items on hover */
+.navbar-mobile a:hover,
+.navbar-mobile a:focus:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Light blue tint on hover */
+}
+
+/* Last Mobile Navigation Link */
+.navbar-mobile ul li:last-child a {
+  border-bottom: none;
+}
+
+/* Mobile Get Started Button */
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 1rem auto;
+  display: block;
+  text-align: center;
+}
+
+/* Mobile Dropdown */
+.navbar-mobile .dropdown > a::after {
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  transition: transform var(--transition-speed) var(--transition-easing);
+  display: inline-block;
+}
+
+/* Mobile Rotate Dropdown Arrow */
+.navbar-mobile .dropdown-active > a::after {
+  transform: rotate(180deg);
+}
+
+/* Mobile Dropdown List */
+.navbar-mobile .dropdown ul {
+  position: relative;
+  display: none;
+  margin: 0.5rem 1rem;
+  padding: 0;
+  box-shadow: none;
+  background: transparent;
+}

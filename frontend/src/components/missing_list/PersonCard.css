@@ -1,0 +1,145 @@
+/* PersonCard.css */
+
+/* Reset and Box Sizing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Card Container */
+.person-card-container {
+    width: calc(50% - 20px); /* Two cards per row on larger screens */
+    max-width: 350px; /* Increased max width */
+    min-width: 300px; /* Minimum width to ensure readability */
+    margin: 15px; /* Adjusted margin for spacing */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+    display: flex; /* Flex layout to align image and details */
+    flex-direction: column; /* Stack content vertically */
+}
+
+.person-card-container:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Image Style */
+.person-image {
+    width: 100%;
+    height: 220px; /* Increased image height */
+    object-fit: cover; /* Ensure image fills container */
+    display: block;
+    border-bottom: 1px solid #eee; /* Subtle border */
+}
+
+/* Details Section */
+.person-details {
+    padding: 20px;
+    text-align: left; /* Align text to the left */
+    flex: 1; /* Allows details to take up remaining height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Name Styling */
+.person-name {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Meta Badges */
+.meta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+/* Individual Badge */
+.badge {
+    display: flex;
+    align-items: center;
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 6px 10px;
+    border-radius: 24px;
+    font-size: 0.75em;
+}
+
+.badge-icon {
+    margin-right: 6px;
+    fill: #6c757d;
+    width: 18px;
+    height: 18px;
+}
+
+.badge-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
+
+/* Mini Cards */
+.mini-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Mini Card Style */
+.mini-card {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    font-size: 0.7em;
+}
+
+.mini-card img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 6px;
+}
+
+/* Delete Button */
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Align to the start */
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .person-card-container {
+        width: calc(100% - 30px); /* Take full width on smaller screens */
+        margin: 15px;
+        min-width: auto; /* Remove min-width */
+    }
+
+    .person-details {
+        padding: 15px;
+    }
+
+    .meta-badges {
+        justify-content: flex-start;
+    }
+}

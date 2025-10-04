@@ -1,0 +1,192 @@
+/* Missing_persons.css */
+
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   }
+
+/* Loading animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+   
+   
+   /* Overall Page */
+   .missing-persons-page {
+    background-color: #f5f7fa;
+    min-height: 150vh; /* Increased page length */
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+   }
+   
+   
+   /* Header Section */
+    .header {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+        border-radius: 0.75rem;
+        margin-bottom: 2rem;
+        margin-top: 4rem;
+    }
+   
+   
+   .header-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #374151;
+   }
+   
+   
+   .header-image {
+    width: 80px;
+    border-radius: 50%;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+   }
+   
+   
+   .header-image:hover {
+    transform: rotate(15deg);
+   }
+   
+   
+   /* Loading and Error Messages */
+   .loading-message,
+   .error-message,
+   .no-persons-message {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
+   }
+   
+   
+   .error-message {
+    color: #ef4444;
+   }
+   
+   
+   /* Person Grid */
+   .person-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin-top: 2rem;
+   }
+   
+   
+   /* Individual Person Card */
+   .person-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+   }
+   
+   
+   .person-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+   }
+   
+   
+   .person-image {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-bottom: 1px solid #e5e7eb;
+   }
+   
+   
+   /* Person Details */
+   .person-details {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+   }
+   
+   
+   .person-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+    text-align: center;
+   }
+   
+   
+   .detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    color: #4b5563;
+   }
+   
+   
+   .detail-row svg {
+    color: #3b82f6;
+    width: 16px;
+    margin-right: 0.5rem;
+   }
+   
+   
+   .detail-label {
+    font-weight: 500;
+    color: #6b7280;
+    margin-right: 0.25rem;
+   }
+   
+   
+   .detail-value {
+    color: #374151;
+   }
+   
+   
+   .delete-button {
+    margin-top: auto;
+    padding: 0.75rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    align-self: center;
+    margin-top: 1rem;
+   }
+   
+   
+   .delete-button:hover {
+    background-color: #2563eb;
+   }
+   
+   
+   /* Page Spacer */
+   .page-spacer {
+    height: 50vh; /* Adds extra scrollable space */
+    width: 100%;
+   }
+   

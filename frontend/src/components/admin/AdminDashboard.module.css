@@ -1,0 +1,88 @@
+.adminDashboardContainer {
+  min-height: 100vh;
+  display: flex;
+  background: #f3f4f6;
+}
+
+/* Loading animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.adminSidebar {
+  width: 250px;
+  background: linear-gradient(135deg, #172554 0%, #2563eb 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  box-shadow: 2px 0 16px rgba(59, 130, 246, 0.08);
+  min-height: 100vh;
+}
+
+.adminSidebarTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.adminSidebarNav {
+  width: 100%;
+}
+.adminSidebarNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.adminSidebarNav li {
+  margin-bottom: 1.2rem;
+}
+.adminSidebarNav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.18s, color 0.18s;
+}
+.adminSidebarNav a:hover {
+  background: #2563eb;
+  color: #fff;
+}
+.activeLink {
+  background: #3b82f6;
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.adminDashboardMain {
+  flex: 1;
+  background: #f3f4f6;
+  border-radius: 0;
+  margin: 2.5rem 2.5rem 2.5rem 0;
+  box-shadow: none;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.adminDashboardWelcome {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a3a6e;
+  margin-bottom: 1.5rem;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.5rem 2rem 1.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+} 

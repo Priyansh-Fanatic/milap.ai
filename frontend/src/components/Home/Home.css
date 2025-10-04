@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+/* Full Hero Section */
+.fullherosection {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 90vh; /* Reduced height slightly to avoid excessive zoom */
+    padding: 5vh 5vw; /* Added padding for better spacing */
+    line-height: 1.2;
+    background: url(./hero-bg.png) center center no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay for readability */
+.fullherosection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    z-index: 0;
+}
+
+/* Container */
+.herofullsection {
+    text-align: center;
+    width: 80%;
+    max-width: 1100px; /* Limits width to avoid excessive zoom */
+    z-index: 1;
+}
+
+/* Hero Text */
+.herotext h1 {
+    font-size: 2.8rem; /* Adjusted font size */
+    font-weight: 700;
+    color: #012970;
+    max-width: 80vw; /* Prevents text from being too wide */
+    font-family: "Nunito", sans-serif;
+    line-height: 1.3;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover Glow Effect */
+.herotext h1:hover {
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 10px rgba(1, 41, 112, 0.5),
+            0 0 20px rgba(1, 41, 112, 0.4),
+            0 0 30px rgba(1, 41, 112, 0.3);
+    }
+    to {
+        text-shadow:
+            0 0 15px rgba(1, 41, 112, 0.7),
+            0 0 25px rgba(1, 41, 112, 0.6),
+            0 0 35px rgba(1, 41, 112, 0.5);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .herotext h1 {
+        font-size: 2.2rem; /* Smaller for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .fullherosection {
+        height: auto;
+        padding: 8vh 5vw; /* More padding for mobile layout */
+    }
+
+    .herotext h1 {
+        font-size: 1.8rem; /* Smaller font for mobile */
+        max-width: 90vw;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .herotext h1 {
+        font-size: 1.5rem; /* Adjusted for small screens */
+        line-height: 1.2;
+    }
+}

@@ -1,0 +1,159 @@
+/* profile-model.css */
+
+/* Modal Overlay */
+.profile-modal-overlay {
+  position: fixed; /* Cover the entire viewport */
+  inset: 0; /* Same as top:0, right:0, bottom:0, left:0 */
+  z-index: 50; /* Ensure it's above other content, including potential navbars */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  backdrop-filter: blur(12px); /* Blur effect for the content behind the modal */
+  -webkit-backdrop-filter: blur(12px); /* Safari support for backdrop-filter */
+  display: flex;
+  align-items: center; /* Vertically center the modal content */
+  justify-content: center; /* Horizontally center the modal content */
+}
+
+/* Modal Content Box */
+.profile-modal-content {
+  background-color: #ffffff; /* Default light mode background */
+  border-radius: 1rem; /* Rounded corners (16px) */
+  padding: 2rem; /* Padding inside the modal (32px) */
+  max-width: 28rem; /* Maximum width of the modal (448px) */
+  width: 90%; /* Responsive width, useful on smaller screens */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Soft shadow for depth */
+  position: relative; /* For potential absolute positioned children if needed */
+  animation: modalAppear 0.3s ease-out; /* Smooth appearance animation */
+}
+
+/* Keyframes for modal appearance animation */
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Start slightly above its final position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at its natural position */
+  }
+}
+
+/* Modal Title */
+.profile-modal-title {
+  font-size: 1.5rem; /* Text size (24px) */
+  line-height: 2rem; /* Line height (32px) */
+  font-weight: 700; /* Bold */
+  margin-bottom: 1.5rem; /* Space below the title (24px) */
+  text-align: center;
+  color: #333333; /* Dark gray text for light mode */
+}
+
+/* Input Grouping */
+.profile-input-group {
+  margin-bottom: 1.5rem; /* Space between input groups (24px) */
+}
+
+/* Input Label */
+.profile-input-label {
+  display: block; /* Ensure it takes its own line */
+  font-size: 0.875rem; /* Text size (14px) */
+  line-height: 1.25rem; /* Line height (20px) */
+  font-weight: 500; /* Medium weight */
+  margin-bottom: 0.5rem; /* Space below the label (8px) */
+  color: #555555; /* Medium gray text for light mode */
+}
+
+/* Input Field Styling */
+.profile-input {
+  width: 100%; /* Full width of its container */
+  padding: 0.75rem 1rem; /* Padding inside input fields (12px top/bottom, 16px left/right) */
+  border-radius: 0.5rem; /* Rounded input fields (8px) */
+  border: 2px solid #e5e7eb; /* Light gray border (Tailwind gray-200) */
+  background-color: #fff; /* White background for light mode */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+  color: #333333; /* Dark text color for input content */
+  font-size: 1rem; /* Standard text size for input */
+}
+
+.profile-input:focus {
+  outline: none; /* Remove default browser outline */
+  border-color: #3b82f6; /* Blue border on focus (Tailwind blue-500) */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); /* Soft blue shadow ring on focus */
+}
+
+.profile-input::placeholder {
+  color: #9ca3af; /* Lighter gray for placeholder text (Tailwind gray-400) */
+}
+
+/* Submit Button in Modal */
+.profile-button {
+  width: 100%;
+  padding: 0.75rem 1rem; /* Padding (12px top/bottom, 16px left/right) */
+  background-color: #60f63bc9; /* Blue background (Tailwind blue-500) */
+  color: #fff; /* White text */
+  font-weight: 600; /* Semi-bold */
+  border-radius: 0.5rem; /* Rounded corners (8px) */
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+  border: none; /* Remove default button border */
+  font-size: 1rem; /* Standard text size */
+}
+
+.profile-button:hover:not(:disabled) {
+  background-color: #25eb25d5; /* Darker blue on hover (Tailwind blue-600) */
+}
+
+.profile-button:disabled {
+  background-color: #9ca3af; /* Gray background when disabled (Tailwind gray-400) */
+  color: #e5e7eb; /* Lighter text color when disabled (Tailwind gray-200) */
+  cursor: not-allowed; /* Indicate non-interactive state */
+  opacity: 0.7; /* Slightly transparent when disabled */
+}
+
+/* Blurred Background Effect for main content when modal is open */
+.blurred-background {
+  filter: brightness(0.5) blur(4px); /* Darken and blur the background */
+  transition: filter 0.3s ease;
+  /* Optional: Prevent interaction with the blurred background */
+  /* pointer-events: none; */
+  /* user-select: none; */
+}
+
+/* Modal Footer Text */
+.profile-modal-footer {
+  margin-top: 2rem; /* Space above the footer (32px) */
+  text-align: center;
+  font-size: 0.875rem; /* Text size (14px) */
+  color: #f5f6f8; /* Default text color for footer (Tailwind gray-500) */
+}
+
+/* Dark Mode Styles (applied if user's OS preference is dark) */
+@media (prefers-color-scheme: dark) {
+  .profile-modal-content {
+    background-color: #ececec; /* Dark gray background for modal (Tailwind gray-800) */
+  }
+  .profile-modal-title {
+    color: #393a3a; /* Light gray/white text for title (Tailwind gray-100) */
+  }
+  .profile-input-label {
+    color: #515253; /* Lighter gray text for labels (Tailwind gray-300) */
+  }
+  .profile-input {
+    background-color: #374151; /* Darker input background (Tailwind gray-700) */
+    border-color: #4b5563; /* Grayer border (Tailwind gray-600) */
+    color: #f3f4f6; /* Light text color for input content (Tailwind gray-100) */
+  }
+  .profile-input::placeholder {
+    color: #6b7280; /* Medium gray for placeholder in dark mode (Tailwind gray-500) */
+  }
+   .profile-input:focus {
+    border-color: #60a5fa; /* Lighter blue border on focus for dark mode (Tailwind blue-400) */
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3); /* Lighter blue shadow ring on focus */
+  }
+  .profile-modal-footer {
+    color: #9ca3af; /* Lighter gray text for footer (Tailwind gray-400) */
+  }
+  .profile-button:disabled {
+    background-color: #4b5563; /* Darker gray when disabled in dark mode (Tailwind gray-600) */
+    color: #9ca3af; /* (Tailwind gray-400) */
+  }
+}
