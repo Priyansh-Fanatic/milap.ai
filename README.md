@@ -596,12 +596,6 @@ This project is licensed under the **ISC License**.
 - Verify WHATSAPP_API_TOKEN in model/.env
 - Check UltraMsg account credits
 
-### Getting Help
-
-- 📧 **Email**: support@milapai.com
-- 🐛 **Issues**: [GitHub Issues](link-to-issues)
-- 📖 **Documentation**: Check markdown files in root directory
-
 ---
 
 ## 🎯 Future Roadmap
